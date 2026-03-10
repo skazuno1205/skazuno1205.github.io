@@ -27,7 +27,7 @@
       const WORLD_HEIGHT = 760;
       const STAGE_WIDTH = 228;
       const MOBILE_BREAKPOINT = 640;
-      const STAGE_MARGIN = 26;
+      const STAGE_MARGIN = 0;
       const GROUND_OFFSET = 68;
       const DEFAULT_TROLL_HEIGHT = 84;
       const SIZE_REDUCTION = 0.8;

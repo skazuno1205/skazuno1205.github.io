@@ -240,7 +240,7 @@
     }
 
     .canvas-top-hud .card {
-      min-height: 64px;
+      min-height: 54px;
       padding: 8px 10px;
       background: rgba(22, 14, 42, 0.72);
       border: 1px solid rgba(255,255,255,0.14);
@@ -261,11 +261,11 @@
 
     .canvas-top-hud #restartBtn {
       pointer-events: auto;
-      min-width: 82px;
-      height: 64px;
-      padding: 0 10px;
+      min-width: 72px;
+      height: 54px;
+      padding: 0 8px;
       border-radius: 18px;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1;
       background: rgba(22, 14, 42, 0.72);
@@ -417,14 +417,14 @@
         font-size: 26px;
       }
       .canvas-top-hud #restartBtn {
-        min-width: 76px;
-        height: 56px;
-        font-size: 18px;
+        min-width: 66px;
+        height: 48px;
+        font-size: 16px;
         padding: 0 8px;
       }
       .canvas-rotate-controls {
         bottom: 14px;
-        padding: 0 10px;
+        padding: 0 8px;
       }
       .canvas-rotate-controls button {
         width: 62px;
