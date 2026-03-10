@@ -5,8 +5,6 @@
       const overlay = document.getElementById('overlay');
       const stackCountEl = document.getElementById('stackCount');
       const bestCountEl = document.getElementById('bestCount');
-      const comboCountEl = document.getElementById('comboCount');
-      const feverCountEl = document.getElementById('feverCount');
       const nextPreview = document.getElementById('nextPreview');
       const messageEl = document.getElementById('message');
       const startBtn = document.getElementById('startBtn');
@@ -60,13 +58,10 @@
         accumulator: 0,
         stackCount: 0,
         bestCount: Number(localStorage.getItem(STORAGE_KEY) || 0),
-        combo: 0,
-        feverCharge: 0,
-        feverTimer: 0,
         windTimer: 0,
         windForce: 0,
         lastWindAt: 0,
-        message: '中央を狙ってコンボをつなげよう！',
+        message: 'ステージ中央を狙って、押して離してドロップ！',
         messageTimer: 0,
         spawnTick: 0,
         towerShake: 0,
@@ -281,7 +276,7 @@
       }
 
       function getGravity() {
-        return state.feverTimer > 0 ? 1220 : 1500;
+        return 1500;
       }
 
       function getSpawnWorldY() {
@@ -644,8 +639,6 @@
       function updateHud() {
         stackCountEl.textContent = String(state.stackCount);
         bestCountEl.textContent = String(state.bestCount);
-        comboCountEl.textContent = String(state.combo);
-        feverCountEl.textContent = `${Math.round((state.feverCharge / 3) * 100)}%`;
         itemCountEl.textContent = String(state.itemCount);
         const progress = (state.itemDropCounter % 5) / 5;
         const circ = 94.25;
@@ -689,9 +682,6 @@
         state.running = hideIntro;
         state.gameOver = false;
         state.stackCount = 0;
-        state.combo = 0;
-        state.feverCharge = 0;
-        state.feverTimer = 0;
         state.windTimer = 0;
         state.windForce = 0;
         state.lastWindAt = 0;
@@ -711,37 +701,13 @@
         overlay.classList.toggle('show', !hideIntro);
       }
 
-      function maybeStartFever() {
-        if (state.feverCharge >= 3) {
-          state.feverCharge = 0;
-          state.feverTimer = 8;
-          setMessage('フィーバー突入！ 重力が少し軽くなった！', 2.0);
-          spawnParticles(state.width * 0.5, state.height * 0.28, 24, '#8be9fd');
-        }
-      }
-
       function onBodySettled(body) {
         body.sleep = true;
         body.vx = 0;
         body.vy = 0;
         body.av = 0;
 
-        const centered = Math.abs(body.x - state.width * 0.5) < 42 && Math.abs(body.angle) < 0.18;
-        if (centered) {
-          state.combo += 1;
-          state.feverCharge = Math.min(3, state.feverCharge + 1);
-          setMessage(`パーフェクト着地！ ${state.combo}コンボ`, 1.8);
-          spawnParticles(body.x, body.y - body.height * 0.3, 10, '#ffd166');
-        } else {
-          if (state.combo >= 3) {
-            setMessage(`コンボ終了… でも ${state.stackCount} 体達成！`, 1.5);
-          }
-          state.combo = 0;
-        }
-
-        maybeStartFever();
-
-        if (state.stackCount - state.lastWindAt >= 4 && state.feverTimer <= 0) {
+        if (state.stackCount - state.lastWindAt >= 4) {
           state.lastWindAt = state.stackCount;
           state.windTimer = 3.2;
           state.windForce = (Math.random() < 0.5 ? -1 : 1) * (34 + Math.random() * 22);
@@ -905,7 +871,6 @@
           state.messageTimer -= dt;
           if (state.messageTimer <= 0) messageEl.textContent = state.message;
         }
-        if (state.feverTimer > 0) state.feverTimer = Math.max(0, state.feverTimer - dt);
         if (state.windTimer > 0) {
           state.windTimer = Math.max(0, state.windTimer - dt);
           if (state.windTimer <= 0) state.windForce = 0;
@@ -928,10 +893,6 @@
           if (state.windTimer > 0 && !touchingStageNow) {
             body.vx += (state.windForce / body.mass) * dt;
           }
-          if (state.feverTimer > 0 && body.hitSomething && !touchingStageNow) {
-            body.vx += Math.sin(performance.now() * 0.004 + body.id) * 0.35;
-          }
-
           if (body.hitSomething) {
             body.vx *= 0.88;
             body.av *= 0.82;
@@ -1261,7 +1222,6 @@
         drawParticles();
         ctx.restore();
 
-        if (state.feverTimer > 0) drawFeverGlow();
       }
 
       function drawStars() {
@@ -1437,17 +1397,6 @@
           ctx.fill();
           ctx.restore();
         }
-      }
-
-      function drawFeverGlow() {
-        ctx.save();
-        ctx.globalCompositeOperation = 'screen';
-        const alpha = 0.06 + Math.sin(performance.now() * 0.008) * 0.03;
-        ctx.fillStyle = `rgba(255,209,102,${alpha})`;
-        ctx.fillRect(0, 0, state.width, state.height);
-        ctx.fillStyle = `rgba(139,233,253,${alpha * 0.9})`;
-        ctx.fillRect(0, 0, state.width, state.height * 0.55);
-        ctx.restore();
       }
 
       function loop(ts) {
