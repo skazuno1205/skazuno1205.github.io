@@ -106,6 +106,8 @@
           { name: "トロール 12", src: "images/troll_12.png", kind: "light", desiredH: 88, density: 0.92, restitution: 0.01, friction: 1.08 },
           { name: "トロール 13", src: "images/troll_13.png", kind: "light", desiredH: 88, density: 0.92, restitution: 0.01, friction: 1.08 },
           { name: "トロール 14", src: "images/troll_14.png", kind: "light", desiredH: 88, density: 0.92, restitution: 0.01, friction: 1.08 },
+          { name: "トロール 15", src: "images/troll_15.png", kind: "light", desiredH: 82, density: 0.92, restitution: 0.01, friction: 1.08 },
+          { name: "トロール 16", src: "images/troll_16.png", kind: "light", desiredH: 88, density: 0.92, restitution: 0.01, friction: 1.08 },
         ];
       }
 
