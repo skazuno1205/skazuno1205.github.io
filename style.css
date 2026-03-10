@@ -78,7 +78,7 @@
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
     }
 
@@ -102,11 +102,6 @@
     .card strong {
       font-size: clamp(19px, 4.2vw, 30px);
       line-height: 1;
-    }
-
-    .card.fever {
-      background: linear-gradient(135deg, rgba(255,209,102,0.18), rgba(139,233,253,0.16));
-      border-color: rgba(255,209,102,0.25);
     }
 
     .controls {
