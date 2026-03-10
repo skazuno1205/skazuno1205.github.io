@@ -266,7 +266,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       grid-template-areas:
         "stack best"
-        "reset best";
+        "reset .";
       gap: 8px;
       width: fit-content;
       pointer-events: auto;
@@ -274,7 +274,7 @@
     }
 
     .canvas-stats .card:nth-of-type(1) { grid-area: stack; }
-    .canvas-stats .card:nth-of-type(2) { grid-area: best; }
+    .canvas-stats .card:nth-of-type(2) { grid-area: best; align-self: start; }
 
     .canvas-top-hud .card {
       min-height: 54px;
@@ -475,7 +475,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-areas:
           "stack best"
-          "reset best";
+          "reset .";
         width: fit-content;
       }
       .canvas-top-hud .card {
