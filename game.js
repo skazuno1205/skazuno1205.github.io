@@ -790,6 +790,15 @@
         return state.gameOverScreenshot;
       }
 
+
+      function captureCanvasFallback() {
+        try {
+          return canvas.toDataURL('image/png');
+        } catch (_) {
+          return null;
+        }
+      }
+
       function downloadGameOverScreenshot() {
         const shot = state.gameOverScreenshot || captureGameOverScreenshot();
         if (!shot) {
@@ -810,7 +819,7 @@
         if (state.gameOver) return;
         state.running = false;
         state.gameOver = true;
-        const screenshot = captureGameOverScreenshot();
+        const screenshot = captureGameOverScreenshot() || captureCanvasFallback();
         const dialogEl = overlay.querySelector('.dialog');
         dialogEl.classList.add('gameover-dialog');
         dialogEl.innerHTML = `
