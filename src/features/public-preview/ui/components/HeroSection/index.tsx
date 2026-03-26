@@ -69,6 +69,14 @@ export function HeroSection({
           ))}
         </div>
 
+        <div className={cn(baseStyles.panel, baseStyles.panelInner)}>
+          <div className={styles.questFeedRow}>
+            <span>LOG</span>
+            <span>PROFILE ACTIVE</span>
+          </div>
+          <p className={styles.systemMessage}>{typewriterMessage}</p>
+        </div>
+
         <div className={styles.heroActions}>
           <button
             className={cn(baseStyles.pixelBtn, baseStyles.pixelBtnGhost)}
@@ -77,14 +85,6 @@ export function HeroSection({
           >
             CHANGE SKY
           </button>
-        </div>
-
-        <div className={cn(baseStyles.panel, baseStyles.panelInner)}>
-          <div className={styles.questFeedRow}>
-            <span>LOG</span>
-            <span>PROFILE ACTIVE</span>
-          </div>
-          <p className={styles.systemMessage}>{typewriterMessage}</p>
         </div>
       </div>
     </section>

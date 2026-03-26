@@ -477,7 +477,7 @@ export const cadArtifacts: CadArtifact[] = [
     type: "3D CAD MODEL",
     title: "Residential Exterior Study",
     description:
-      "住宅外観を立体で検討した家モデル。形状バランス、面の見え方、全体ボリュームを確認しながら構成した3D CADワーク。",
+      "住宅の外観を立体で検討するために作った家のモデルです。住宅図面をもとに制作しました。",
     highlights: [
       "住宅形状の立体モデリング",
       "外観バランスの確認",
@@ -490,7 +490,7 @@ export const cadArtifacts: CadArtifact[] = [
     type: "PRODUCT CAD MODEL",
     title: "Moonlight Saturn LED Lamp",
     description:
-      "月をモチーフにしたフルカラーLED照明モデル。照明プロダクトとしての存在感と造形の面白さを両立させた3D CADワーク。",
+      "月をモチーフにしたフルカラーLED照明のモデルです。MDF版をレーザカットし色調節可能な月の照明に仕上げています。",
     highlights: [
       "月型照明のプロダクトモデリング",
       "フルカラーLED照明の筐体イメージ検討",
@@ -611,7 +611,7 @@ export const pastProjects: PastProject[] = [
   {
     eyebrow: "AI PHOTO FRAME",
     title: "宇宙猫召喚装置",
-    subtitle: "Raspberry Pi / Stable Diffusion",
+    subtitle: "電子工作",
     description:
       "Raspberry Pi 4 と Inky Impression で、生成画像の作成と表示をループさせるフォトフレーム。Fusion 360 で筐体を設計し、ファンを組み込んだ実機まで制作。",
     imageSrc: "/images/projects/space-cat-photo-frame.png",

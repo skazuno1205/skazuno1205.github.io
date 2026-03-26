@@ -77,7 +77,7 @@ export function createSkyLotteryBoard(
   const slotBounds: SkyLotterySlotBound[] = [];
   const pegs: SkyLotteryPeg[] = [];
 
-  for (let row = 0; row < SKY_ROWS; row += 1) {
+  for (let row = 1; row < SKY_ROWS; row += 1) {
     const count = row + 1;
     const y = topY + row * rowSpacingY;
     const rowWidth = (count - 1) * spacingX;

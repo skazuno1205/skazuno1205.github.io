@@ -26,7 +26,7 @@
   background: var(--color-brand-secondary);
   color: #251300;
   border: 0;
-  box-shadow: 0 0 0 3px #412600, 0 0 0 6px #ffea9d;
+  box-shadow: inset 0 0 0 3px #ffea9d, inset 0 0 0 6px #412600;
   font-family: "Press Start 2P", monospace;
   font-size: var(--font-size-ui-sm);
   transition: transform 0.15s steps(2), filter 0.2s ease;
@@ -41,13 +41,13 @@
 .pixelBtnGhost {
   background: #2a194d;
   color: var(--accent);
-  box-shadow: 0 0 0 3px #0f081d, 0 0 0 6px #5d38a4;
+  box-shadow: inset 0 0 0 3px #5d38a4, inset 0 0 0 6px #0f081d;
 }
 
 .pixelBtnPreview {
   background: #5f4a1f;
   color: #fff0c5;
-  box-shadow: 0 0 0 3px #241506, 0 0 0 6px #8e6b2f;
+  box-shadow: inset 0 0 0 3px #8e6b2f, inset 0 0 0 6px #241506;
 }
 
 .pixelBtnContact {

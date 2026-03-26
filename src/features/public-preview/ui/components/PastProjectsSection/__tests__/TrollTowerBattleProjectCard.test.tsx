@@ -1,4 +1,10 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+} from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { PastProject } from "../../../../model/portfolioData";
@@ -62,6 +68,7 @@ beforeEach(() => {
   disconnectMock = vi.fn();
   intersectionObserverCallback = undefined;
   requestAnimationFrameCallback = undefined;
+  vi.useFakeTimers();
 
   Object.defineProperty(window, "IntersectionObserver", {
     configurable: true,
@@ -107,6 +114,8 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup();
+  vi.runOnlyPendingTimers();
+  vi.useRealTimers();
   vi.restoreAllMocks();
 });
 
@@ -197,6 +206,31 @@ describe("TrollTowerBattleProjectCard", () => {
     expect(
       screen.getByTestId("troll-stack-arena").querySelectorAll("img"),
     ).toHaveLength(1);
+  });
+
+  it("removes each spawned troll automatically after a short delay", () => {
+    render(
+      <TrollTowerBattleProjectCard
+        project={trollProject}
+        trollTowerBattleBest="BEST --"
+      />,
+    );
+
+    const trigger = screen.getByRole("button", {
+      name: "トロールタワーバトル",
+    });
+    const arena = screen.getByTestId("troll-stack-arena");
+
+    fireEvent.click(trigger);
+    fireEvent.click(trigger);
+
+    expect(arena.querySelectorAll("img")).toHaveLength(2);
+
+    act(() => {
+      vi.advanceTimersByTime(3200);
+    });
+
+    expect(arena.querySelectorAll("img")).toHaveLength(0);
   });
 
   it("gracefully skips observer and spawn work when browser globals are unavailable", () => {

@@ -23,6 +23,8 @@ type TrollTowerBattleProjectCardProps = {
   trollTowerBattleBest: string;
 };
 
+const TROLL_LIFETIME_MS = 3200;
+
 export const trollImageSources = [
   "/images/troll/troll_01.png",
   "/images/troll/troll_02.png",
@@ -104,6 +106,7 @@ export function TrollTowerBattleProjectCard({
   const animationFrameRef = useRef<number | null>(null);
   const lastTimestampRef = useRef<number | null>(null);
   const trollBodiesRef = useRef<TrollBody[]>([]);
+  const removalTimeoutsRef = useRef<Map<string, number>>(new Map());
 
   useEffect(() => {
     trollBodiesRef.current = trollBodies;
@@ -170,8 +173,35 @@ export function TrollTowerBattleProjectCard({
       if (animationFrameRef.current) {
         window.cancelAnimationFrame(animationFrameRef.current);
       }
+
+      for (const timeoutId of removalTimeoutsRef.current.values()) {
+        window.clearTimeout(timeoutId);
+      }
+
+      removalTimeoutsRef.current.clear();
     };
   }, []);
+
+  const removeTrollBody = (bodyId: string) => {
+    const timeoutId = removalTimeoutsRef.current.get(bodyId);
+
+    if (timeoutId) {
+      window.clearTimeout(timeoutId);
+      removalTimeoutsRef.current.delete(bodyId);
+    }
+
+    const nextBodies = trollBodiesRef.current.filter(
+      (body) => body.id !== bodyId,
+    );
+
+    trollBodiesRef.current = nextBodies;
+    setTrollBodies(nextBodies);
+
+    if (nextBodies.every((body) => body.settled)) {
+      setIsSimulating(false);
+      lastTimestampRef.current = null;
+    }
+  };
 
   const spawnTroll = () => {
     const spawnContext = getTrollSpawnContext(
@@ -190,12 +220,33 @@ export function TrollTowerBattleProjectCard({
       getPrefersReducedMotion(),
       trollBodiesRef.current.length,
     );
-    const nextBodies = [...trollBodiesRef.current, nextBody].slice(
+    const previousBodies = trollBodiesRef.current;
+    const nextBodies = [...previousBodies, nextBody].slice(
       -spawnContext.maxBodies,
     );
 
     trollBodiesRef.current = nextBodies;
     setTrollBodies(nextBodies);
+
+    const overflowBodyIds = previousBodies
+      .filter((body) => !nextBodies.some((nextBody) => nextBody.id === body.id))
+      .map((body) => body.id);
+
+    for (const bodyId of overflowBodyIds) {
+      const timeoutId = removalTimeoutsRef.current.get(bodyId);
+
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+        removalTimeoutsRef.current.delete(bodyId);
+      }
+    }
+
+    removalTimeoutsRef.current.set(
+      nextBody.id,
+      window.setTimeout(() => {
+        removeTrollBody(nextBody.id);
+      }, TROLL_LIFETIME_MS),
+    );
 
     if (getPrefersReducedMotion()) {
       return;

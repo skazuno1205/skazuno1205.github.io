@@ -18,11 +18,14 @@ describe("skyLottery", () => {
     expect(board.slotLabelFontSize).toBeGreaterThan(0);
   });
 
-  it("builds a board with 12 slots and peg rows", () => {
+  it("builds a board with 12 slots and peg rows without the top single peg", () => {
     const board = createSkyLotteryBoard(640, 420);
 
     expect(board.slotBounds).toHaveLength(12);
-    expect(board.pegs).toHaveLength(66);
+    expect(board.pegs).toHaveLength(65);
+    expect(board.pegs[0].x).toBeLessThan(board.width / 2);
+    expect(board.pegs[1].x).toBeGreaterThan(board.width / 2);
+    expect(board.pegs[0].y).toBe(board.pegs[1].y);
   });
 
   it("maps x positions into slot indexes", () => {

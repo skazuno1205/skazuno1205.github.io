@@ -172,6 +172,7 @@
 }
 
 .projectTitleTrigger {
+  display: inline-block;
   padding: 0;
   border: 0;
   background: transparent;
@@ -179,13 +180,16 @@
   font: inherit;
   text-align: left;
   cursor: pointer;
-  transition: color 0.16s ease, text-shadow 0.16s ease;
+  transform-origin: center;
+  animation: hiddenTriggerNudge 1s ease-in-out infinite;
+  transition: color 0.16s ease, text-shadow 0.16s ease, transform 0.16s ease;
 }
 
 .projectTitleTrigger:hover,
 .projectTitleTrigger:focus-visible {
   color: #fff0aa;
   text-shadow: 0 0 10px rgba(255, 214, 108, 0.34);
+  animation-duration: 0.84s;
 }
 
 .projectActionsWrap {
@@ -240,6 +244,32 @@
   line-height: 1.7;
   letter-spacing: 0.08em;
   white-space: nowrap;
+}
+
+@keyframes hiddenTriggerNudge {
+  0%,
+  74%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  78% {
+    transform: translate3d(-1px, 0, 0) rotate(-0.45deg);
+  }
+
+  86% {
+    transform: translate3d(1px, 0, 0) rotate(0.45deg);
+  }
+
+  92% {
+    transform: translate3d(-0.5px, 0, 0) rotate(-0.2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectTitleTrigger {
+    animation: none;
+  }
 }
 
 @keyframes spaceCatFlyLeft {
