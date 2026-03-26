@@ -684,10 +684,10 @@ export const pastProjects: PastProject[] = [
   },
   {
     eyebrow: "LIGHTING OBJECT",
-    title: "300coins月の魔改造ライト",
+    title: "3coins月の魔改造ライト",
     subtitle: "電子工作",
     description:
-      "300coinsの月ライトを分解し月の部分を利用。内部にフルカラーLEDを持ち回転センサーから各RGB値を制御し好きな色に調整できる。",
+      "3coinsの月ライトを分解し月の部分を利用。内部にフルカラーLEDを持ち回転センサーから各RGB値を制御し好きな色に調整できる。",
     imageSrc: "/images/projects/moon-light.gif",
     imageAlt: "月のライトの発光イメージ",
     href: "/images/projects/moon-light.gif",
