@@ -1,5 +1,5 @@
-import { cn } from "../../utils/cn";
 import type { Meter } from "../../../model/portfolioData";
+import { cn } from "../../utils/cn";
 import styles from "./HeroSection.module.css";
 
 type MeterBlockProps = {
@@ -33,14 +33,13 @@ function MeterTrack({
   );
 }
 
-export function BuildTimeMeter({
-  meter,
-  meterAnimated,
-}: MeterBlockProps) {
+export function BuildTimeMeter({ meter, meterAnimated }: MeterBlockProps) {
   return (
     <div className={styles.meterBlock}>
       <p className={styles.meterTitle}>{meter.label}</p>
-      {meter.valueLabel ? <p className={styles.meterValue}>{meter.valueLabel}</p> : null}
+      {meter.valueLabel ? (
+        <p className={styles.meterValue}>{meter.valueLabel}</p>
+      ) : null}
       <MeterTrack
         fillClassName={meter.fillClassName}
         meterAnimated={meterAnimated}
@@ -50,10 +49,7 @@ export function BuildTimeMeter({
   );
 }
 
-export function CareerMeter({
-  meter,
-  meterAnimated,
-}: MeterBlockProps) {
+export function CareerMeter({ meter, meterAnimated }: MeterBlockProps) {
   return (
     <div className={styles.meterBlock}>
       <p className={styles.meterTitle}>{meter.label}</p>
@@ -62,7 +58,9 @@ export function CareerMeter({
           <span className={styles.meterMetaPrimary}>{meter.levelLabel}</span>
         ) : null}
         {meter.progressLabel ? (
-          <span className={styles.meterMetaSecondary}>{meter.progressLabel}</span>
+          <span className={styles.meterMetaSecondary}>
+            {meter.progressLabel}
+          </span>
         ) : null}
       </div>
       <MeterTrack
