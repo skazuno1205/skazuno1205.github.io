@@ -611,7 +611,7 @@ export const pastProjects: PastProject[] = [
     title: "宇宙猫召喚装置",
     subtitle: "電子工作",
     description:
-      "Raspberry Pi 4 と Inky Impression で、生成画像の作成と表示をループさせるフォトフレーム。Fusion 360 で筐体を設計し、ファンを組み込んだ実機まで制作。",
+      "Raspberry Pi 4と Inky Impressionを使い、宇宙猫の画像生成とその表示を行うフォトフレーム。ファンも組み込むことでcpu発熱を冷却しています。",
     imageSrc: "/images/projects/space-cat-photo-frame.png",
     imageAlt: "宇宙猫召喚装置で表示する猫のアートワーク",
     href: "https://qiita.com/kyazoooo/items/3fa5e929ebf3d2c6e028",
@@ -662,6 +662,18 @@ export const pastProjects: PastProject[] = [
     imageSrc: "/images/projects/led-coaster.gif",
     imageAlt: "LEDコースターの点灯イメージ",
     href: "/images/projects/led-coaster.gif",
+    ctaLabel: "VIEW WORK",
+    opensPreview: true,
+  },
+  {
+    eyebrow: "SMART DISPLAY",
+    title: "カレンダーウェザーボード",
+    subtitle: "電子工作",
+    description:
+      "Raspberry Pi 4とInky Impressionを使い、Googleカレンダーの予定と天気予報を表示するディスプレイ。日々の予定確認と天気チェックをひと目でできる実用的な情報端末。",
+    imageSrc: "/images/projects/calendar-weather-board.png",
+    imageAlt: "カレンダーウェザーボードの表示画面",
+    href: "/images/projects/calendar-weather-board.png",
     ctaLabel: "VIEW WORK",
     opensPreview: true,
   },
