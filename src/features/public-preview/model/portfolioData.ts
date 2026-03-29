@@ -487,7 +487,7 @@ export const cadArtifacts: CadArtifact[] = [
   },
   {
     type: "PRODUCT CAD MODEL",
-    title: "3coins月の魔改造ライト",
+    title: "フルカラームーンライト",
     description:
       "月をモチーフにしたフルカラーLED照明のモデルです。MDF版をレーザカットし色調節可能な月の照明に仕上げています。",
     highlights: [
@@ -611,7 +611,7 @@ export const pastProjects: PastProject[] = [
     title: "宇宙猫召喚装置",
     subtitle: "電子工作",
     description:
-      "Raspberry Pi 4と Inky Impressionを使い、宇宙猫の画像生成とその表示を行うフォトフレーム。ファンも組み込むことでcpu発熱を冷却しています。",
+      "Raspberry Pi 4と Inky Impressionを使い、宇宙猫の画像生成とその表示を行うフォトフレーム。ファンも組み込んでいるのでcpuの冷却ができます。",
     imageSrc: "/images/projects/space-cat-photo-frame.png",
     imageAlt: "宇宙猫召喚装置で表示する猫のアートワーク",
     href: "https://qiita.com/kyazoooo/items/3fa5e929ebf3d2c6e028",
@@ -691,7 +691,7 @@ export const pastProjects: PastProject[] = [
   },
   {
     eyebrow: "LIGHTING OBJECT",
-    title: "3coins月の魔改造ライト",
+    title: "フルカラームーンライト",
     subtitle: "電子工作",
     description:
       "3coinsの月ライトを分解し月の部分を利用。内部にフルカラーLEDを持ち回転センサーから各RGB値を制御し好きな色に調整できる。",
