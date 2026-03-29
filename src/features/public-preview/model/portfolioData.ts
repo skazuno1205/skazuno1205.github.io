@@ -478,26 +478,21 @@ export const trophies: Trophy[] = [
 export const cadArtifacts: CadArtifact[] = [
   {
     type: "3D CAD MODEL",
-    title: "Residential Exterior Study",
+    title: "Home",
     description:
-      "住宅の外観を立体で検討するために作った家のモデルです。住宅図面をもとに制作しました。",
-    highlights: [
-      "住宅形状の立体モデリング",
-      "外観バランスの確認",
-      "空間把握と面構成の調整",
-    ],
+      "住宅の外観を確認するために作った家のモデルです。住宅図面をもとに制作しました。",
+    highlights: ["住宅形状の立体モデリング", "外観バランスの確認"],
     modelSrc: "/models/home_with_mtl.glb",
     alt: "家の3D CADモデル",
   },
   {
     type: "PRODUCT CAD MODEL",
-    title: "Moonlight Saturn LED Lamp",
+    title: "3coins月の魔改造ライト",
     description:
       "月をモチーフにしたフルカラーLED照明のモデルです。MDF版をレーザカットし色調節可能な月の照明に仕上げています。",
     highlights: [
       "月型照明のプロダクトモデリング",
       "フルカラーLED照明の筐体イメージ検討",
-      "曲面を含む造形表現",
     ],
     modelSrc: "/models/moon-led-saturn.glb",
     alt: "月型のフルカラーLED照明の3D CADモデル",
@@ -616,7 +611,7 @@ export const pastProjects: PastProject[] = [
     title: "宇宙猫召喚装置",
     subtitle: "電子工作",
     description:
-      "Raspberry Pi 4 と Inky Impression で、生成画像の作成と表示をループさせるフォトフレーム。Fusion 360 で筐体を設計し、ファンを組み込んだ実機まで制作。",
+      "Raspberry Pi 4と Inky Impressionを使い、宇宙猫の画像生成とその表示を行うフォトフレーム。ファンも組み込むことでcpu発熱を冷却しています。",
     imageSrc: "/images/projects/space-cat-photo-frame.png",
     imageAlt: "宇宙猫召喚装置で表示する猫のアートワーク",
     href: "https://qiita.com/kyazoooo/items/3fa5e929ebf3d2c6e028",
@@ -671,6 +666,18 @@ export const pastProjects: PastProject[] = [
     opensPreview: true,
   },
   {
+    eyebrow: "SMART DISPLAY",
+    title: "カレンダーウェザーボード",
+    subtitle: "電子工作",
+    description:
+      "Raspberry Pi 4とInky Impressionを使い、Googleカレンダーの予定と天気予報を表示するディスプレイ。日々の予定確認と天気チェックをひと目でできる実用的な情報端末。",
+    imageSrc: "/images/projects/calendar-weather-board.png",
+    imageAlt: "カレンダーウェザーボードの表示画面",
+    href: "/images/projects/calendar-weather-board.png",
+    ctaLabel: "VIEW WORK",
+    opensPreview: true,
+  },
+  {
     eyebrow: "LIGHTING OBJECT",
     title: "LEDボール",
     subtitle: "電子工作",
@@ -691,6 +698,18 @@ export const pastProjects: PastProject[] = [
     imageSrc: "/images/projects/moon-light.gif",
     imageAlt: "月のライトの発光イメージ",
     href: "/images/projects/moon-light.gif",
+    ctaLabel: "VIEW WORK",
+    opensPreview: true,
+  },
+  {
+    eyebrow: "LIGHTING OBJECT",
+    title: "エレクトリカルプレート",
+    subtitle: "電子工作",
+    description:
+      "浜松ハッカソンチームで開発したディスプレイが埋め込まれた大理石のお皿。アニメーションや画像の表示が可能で、食事をより楽しく、美味しく感じさせるためのアイデアが詰まったお皿。",
+    imageSrc: "/images/projects/electrical-plate.jpg",
+    imageAlt: "エレクトリカルプレートの外観",
+    href: "/images/projects/electrical-plate.jpg",
     ctaLabel: "VIEW WORK",
     opensPreview: true,
   },
