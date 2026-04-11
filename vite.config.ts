@@ -22,9 +22,16 @@ function getGitHubPagesBasePath() {
 export default defineConfig({
   base: getGitHubPagesBasePath(),
   plugins: [react()],
+  build: {
+    outDir: ".artifacts/dist",
+  },
   test: {
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",
-    exclude: ["tests/e2e/**", "node_modules/**", "dist/**"],
+    exclude: ["tests/e2e/**", "node_modules/**", ".artifacts/**", "dist/**"],
+    coverage: {
+      provider: "v8",
+      reportsDirectory: ".artifacts/coverage",
+    },
   },
 });
