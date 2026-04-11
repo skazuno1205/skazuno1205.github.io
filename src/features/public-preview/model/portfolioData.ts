@@ -713,6 +713,53 @@ export const pastProjects: PastProject[] = [
     ctaLabel: "VIEW WORK",
     opensPreview: true,
   },
+  {
+    eyebrow: "MEMORY DISPLAY",
+    title: "思い出再生フォトフレーム",
+    subtitle: "電子工作",
+    description:
+      "7色電子ペーパー2枚とRaspberry Pi Zero 2台を使った思い出再生ディスプレイ。写真をゆっくり切り替えながら表示し、記憶をたどる体験を形にした。",
+    imageSrc: "/images/projects/photo-frame-memory-display.jpg",
+    imageAlt: "思い出再生フォトフレームの外観",
+    href: "/images/projects/photo-frame-memory-display.jpg",
+    ctaLabel: "VIEW WORK",
+    opensPreview: true,
+  },
+  {
+    eyebrow: "MOON DISPLAY",
+    title: "月面ビデオディスプレイ",
+    subtitle: "電子工作",
+    description:
+      "3COINSの月型ライトの内側に球体プロジェクターを組み込み、動画を再生できる月形ディスプレイ。インテリアと映像再生を組み合わせた作品。",
+    imageSrc: "/images/projects/moon-video-display.jpg",
+    imageAlt: "月面ビデオディスプレイの外観",
+    href: "/images/projects/moon-video-display.jpg",
+    ctaLabel: "VIEW WORK",
+    opensPreview: true,
+  },
+  {
+    eyebrow: "AWARD DEVICE",
+    title: "VFcom",
+    subtitle: "電子工作",
+    description:
+      "第3回生活デザインコンテスト優秀賞作品。CO2センサーを内蔵しておりCO2濃度に応じて換気扇をECHONET Lite経由でコントロールする空間改善デバイス。",
+    imageSrc: "/images/projects/device-box-co2-controller.jpg",
+    imageAlt: "VFcomの筐体イメージ",
+    href: "https://www.he.kanagawa-it.ac.jp/~masao/index.html%40p%3D337.html",
+    ctaLabel: "VIEW WORK",
+  },
+  {
+    eyebrow: "OSHI GADGET",
+    title: "推し活ディスプレイキーホルダー",
+    subtitle: "電子工作",
+    description:
+      "ディスプレイとバッテリーを搭載した推し活キーホルダー。1.28 inch LCD Moduleとジャイロセンサーを組み合わせ、角度に応じて画面の向きが変わるように実装した。",
+    imageSrc: "/images/projects/oshi-keyholder-display.jpg",
+    imageAlt: "推し活ディスプレイキーホルダーの表示イメージ",
+    href: "/images/projects/oshi-keyholder-display.jpg",
+    ctaLabel: "VIEW WORK",
+    opensPreview: true,
+  },
 ];
 
 export const contactLinks: ContactLink[] = [
