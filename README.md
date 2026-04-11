@@ -89,6 +89,8 @@ public/
 npm run test:coverage
 ```
 
+ビルド・テストの生成物は root の見通しを保つため、`.artifacts/` 配下に集約しています。
+
 ## Getting Started
 
 ```bash

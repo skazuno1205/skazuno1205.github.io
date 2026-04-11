@@ -5,7 +5,18 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
-  reporter: process.env.CI ? "html" : "list",
+  reporter: process.env.CI
+    ? [
+        [
+          "html",
+          {
+            open: "never",
+            outputFolder: ".artifacts/playwright/report",
+          },
+        ],
+      ]
+    : "list",
+  outputDir: ".artifacts/playwright/test-results",
   use: {
     baseURL: "http://127.0.0.1:4173",
     trace: "on-first-retry",

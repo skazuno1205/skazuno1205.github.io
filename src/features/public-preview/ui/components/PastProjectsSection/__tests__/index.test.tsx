@@ -51,6 +51,16 @@ describe("PastProjectsSection", () => {
     expect(
       screen.getByRole("button", { name: "CLOSE ARCHIVE" }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "思い出再生フォトフレーム" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "月面ビデオディスプレイ" }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "VFcom" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "推し活ディスプレイキーホルダー" }),
+    ).toBeInTheDocument();
   });
 
   it("reads best score, opens image previews, and removes summoned cats after animation", async () => {
